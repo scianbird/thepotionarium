@@ -15,3 +15,9 @@ I want the visual design to have a cohesive colour palette, a clear theme to the
 ![alt text][image]
 
 [image]: /wireframes.png "Wireframes for a desktop and an app version of a cookie clicker game with a magic theme"
+
+For this project I want to add 3 breakpoints: large/desktop (greater than 1024px), medium/tablet (max-width: 1024px) and small/phones (max-width: 768px). I got the values for the breakpoints for googling for the most common breakpoints and taking an example from (https://blog.logrocket.com/css-breakpoints-responsive-design/). Although I have only planned for 2 wireframe layouts, the "medium" version can be understood as a middle point between the two and so there should be clear logic when it comes time for me to style the elements.
+
+## Building
+
+I began with creating the first function (clicking the element and seeing the count go up).

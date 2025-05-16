@@ -2,3 +2,30 @@
   margin: 0;
   padding: 0;
 }
+
+.darumadrop-one-regular {
+  font-family: "Darumadrop One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* imported the font thanks to this explanation on the google font API (and thanks to the lesson on APIs!) https://developers.google.com/fonts/docs/getting_started
+ */
+body {
+  background-color: #416535;
+}
+
+.title-screen {
+  font-family: "Darumadrop One";
+  padding-top: 17rem;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  font-size: 8dvw;
+  width: 100%;
+  overflow: hidden;
+}
+
+.press-start {
+  font-size: 2dvw;
+  color: #152b0d;
+}
