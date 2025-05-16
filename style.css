@@ -22,10 +22,13 @@ body {
   justify-content: center;
   font-size: 8dvw;
   width: 100%;
+  height: 100%;
   overflow: hidden;
+  z-index: 90;
 }
 
 .press-start {
   font-size: 2dvw;
   color: #152b0d;
+  z-index: 100;
 }
