@@ -21,3 +21,17 @@ For this project I want to add 3 breakpoints: large/desktop (greater than 1024px
 ## Building
 
 For the first time I used branches as I was building in order to periodically upload to github - I want to get better about this, and braver about using the terminal (right now I do everything from VSCode, including making and naming the new branches)
+
+Most of my thoughts as I was working on the functionality of the game are in the comments of my javascript file (sorry about that...) but overall I am feeling a little more sure-footed in javascript this week and at the very least fairly able to break down something like these idle games into lists of functions etc that will have to be written. Writing them..? Well that still takes a lot of trial and error (and help from classmates, special shoutout to Dylan for kindly talking me through when I hit a wall with my thinking)
+
+There are aspects I'm not able to implement right now, and maybe this is something I will go back to and periodically update as I improve and am exposed to more approaches but for now I'm happy to make the best of what I've got. And that means it's time for ...
+
+## Styling
+
+My beloved.. wireframes I made on figma are upthread, but overall I had a very clear visual look for this. Something I would like to consider in the future is "training myself" into thinking about mobile-first designing, as I always end up scaling something down rather than scaling it up. Which might be easier. Who knows. Emotionally I am still on the family computer loading websites.
+
+I could talk about this all day, but I will try and keep it relevant. Visual assets are hand-drawn on Procreate, airdropped from my iPad and slotted into place after ensuring that the functionality all works as intended/expected. Until that point I'm working with kind of a recreated wireframe like so (and maybe occasionally updating something or stuling a button here and there to keep the fire in my heart alive):
+
+![alt text][image]
+
+[image]: /early-styling.png "A very rough website layout represented by coloured boxes"

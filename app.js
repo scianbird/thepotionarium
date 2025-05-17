@@ -4,7 +4,7 @@
 
 //we first need to set the original stats for the user - this should be clicks and clicks per second both set to 0 unless they have data saved
 let userStats = {
-  dragonScales: 500,
+  dragonScales: 0,
   scalesPerSecond: 0,
 };
 
@@ -16,8 +16,7 @@ dragonImage.addEventListener("click", clickDragon);
 function clickDragon() {
   userStats.dragonScales++;
   console.log(userStats); //for testing if the function is working before adding the number to the DOM
-  const stringifiedScales = JSON.stringify(userStats.dragonScales);
-  localStorage.setItem("scales", stringifiedScales);
+
   document.getElementById("total-scales").innerHTML = userStats.dragonScales;
 }
 dragonImage.addEventListener("click", clickDragon);
@@ -32,7 +31,7 @@ dragonImage.addEventListener("click", clickDragon);
 
 document.getElementById("reset-button").addEventListener("click", resetStats); */
 
-//my attempt above didn't work (the console log did work though), so I took Alisons advice of also forcing a reload of the window. At the time of making this, I haven't implimented the title screen, but I hope it continues to work just fine
+//my attempt above didn't work (the console log did work though), so I took Alisons advice of also forcing a reload of the window. At the time of making this, I haven't implimented the title screen, but I hope it continues to work just fine even when I do implement that
 
 document.getElementById("reset-button").addEventListener("click", () => {
   localStorage.clear();
@@ -86,7 +85,7 @@ function createSpellBook(APIdata) {
         document.getElementById("sps-display").innerHTML =
           userStats.scalesPerSecond;
       } else {
-        console.log("you can't afford this");
+        console.log("you can't afford this"); //if I have time, I will come back and add something that the player can see to this, otherwise it just looks like it has no function
       }
       return userStats.scalesPerSecond;
     });
@@ -126,3 +125,34 @@ setInterval(function () {
   userStats.dragonScales += userStats.scalesPerSecond;
   document.getElementById("total-scales").innerHTML = userStats.dragonScales;
 }, 1000);
+
+///I need to pay some more attention to saving in local data. right now the values of scales and scales per second are both stored there, but refreshing the page clears them. I have to tell the browser to remember them and load them on refresh.
+
+setInterval(function saveLocalStorage() {
+  let stringifiedScales = JSON.stringify(userStats.dragonScales);
+  localStorage.setItem("scales", stringifiedScales);
+  let stringifiedPerSecond = JSON.stringify(userStats.scalesPerSecond);
+  localStorage.setItem("scales per second", stringifiedPerSecond);
+}, 1500);
+
+//making the function and calling it meant that it only ever saved the inital value on loading (at the minute it's 500, since I was testing the upgrade items and didn't want to start from 0 every time, but when I set userStats to their correct amount, it will just be stuck to 0)
+//The only thing I can currently think of is something like an auto-save function that repeats. I would like a "nicer" way to do this, if one exists - something that doesn't run even when there's no changes. Maybe it running when there's no changes doesn't take any resources. But maybe it does.
+
+//Anyway, I then want to get that info back on refresh (not reset)
+//I need to tell it only to load info in if there is data, as no data will not load in a "0"
+
+const scalesLocalData = localStorage.getItem("scales");
+const parsedScales = JSON.parse(scalesLocalData);
+if (parsedScales !== null) {
+  userStats.dragonScales = parsedScales;
+  document.getElementById("total-scales").innerHTML = userStats.dragonScales;
+}
+
+const persecLocalData = localStorage.getItem("scales per second");
+const parsedPerSec = JSON.parse(persecLocalData);
+if (parsedPerSec !== null) {
+  userStats.scalesPerSecond = parsedPerSec;
+  document.getElementById("sps-display").innerHTML = userStats.scalesPerSecond;
+}
+
+//YAY IT WORKS ＼(٥⁀▽⁀ )／ i think ..
