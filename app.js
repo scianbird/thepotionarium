@@ -4,7 +4,7 @@
 
 //we first need to set the original stats for the user - this should be clicks and clicks per second both set to 0 unless they have data saved
 let userStats = {
-  dragonScales: 0,
+  dragonScales: 500,
   scalesPerSecond: 0,
 };
 
@@ -66,6 +66,8 @@ const newNames = [
   "Delivery of wholesale scales",
 ];
 
+//const upgradeImages //images to display when you buy an upgrade
+
 //displaying the upgrade items requires 2 different functions: one to create the element and one to display the data as the element. I am having some trouble getting the new names to display though (╬ Ò﹏Ó)
 
 const spellBook = document.getElementById("shop-container");
@@ -76,9 +78,17 @@ function createSpellBook(APIdata) {
     spellListItem.setAttribute("id", "spell-list-item");
     spellListItem.setAttribute("class", "spell-list-item");
     spellListItem.addEventListener("click", () => {
-      if (userStats.dragonScales >= APIdata[index].cost)
+      if (userStats.dragonScales >= APIdata[index].cost) {
         userStats.scalesPerSecond += APIdata[index].increase;
-      userStats.dragonScales -= APIdata[index].cost;
+        userStats.dragonScales -= APIdata[index].cost;
+        document.getElementById("total-scales").innerHTML =
+          userStats.dragonScales;
+        document.getElementById("sps-display").innerHTML =
+          userStats.scalesPerSecond;
+      } else {
+        console.log("you can't afford this");
+      }
+      return userStats.scalesPerSecond;
     });
 
     spellListItem.innerHTML = `${newNames[index]} 
@@ -109,3 +119,10 @@ closedBook.addEventListener("click", createSpellBookandAddSpells);
 const openBook = document.getElementById("open-book");
 openBook.addEventListener("click", bookSwap);
 (I realised this was basically re-making the array every time as the opening book is linked to the array. I guess once the book is open you can't close it until I learn more) */
+
+//I need functions to handle the automatic clickers. every time an upgrade is purchased, it will add the specified amount to the dragonScales - this should be an interval as we want it to run until stopped (timeout will only run once) I don't want every upgrade to run every second - eg the bigger numbers should take a longer time but I'm also not incredibly sure on the maths for the scales per second there so for now I will just update every second no matter the upgrade the user buys
+
+setInterval(function () {
+  userStats.dragonScales += userStats.scalesPerSecond;
+  document.getElementById("total-scales").innerHTML = userStats.dragonScales;
+}, 1000);
