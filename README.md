@@ -20,4 +20,4 @@ For this project I want to add 3 breakpoints: large/desktop (greater than 1024px
 
 ## Building
 
-I began with creating the first function (clicking the element and seeing the count go up).
+For the first time I used branches as I was building in order to periodically upload to github - I want to get better about this, and braver about using the terminal (right now I do everything from VSCode, including making and naming the new branches)

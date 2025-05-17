@@ -11,24 +11,39 @@
 /* imported the font thanks to this explanation on the google font API (and thanks to the lesson on APIs!) https://developers.google.com/fonts/docs/getting_started
  */
 body {
-  background-color: #416535;
+  background-color: rgb(29, 92, 22);
 }
 
-.title-screen {
-  font-family: "Darumadrop One";
-  padding-top: 17rem;
-  color: whitesmoke;
-  display: flex;
-  justify-content: center;
-  font-size: 8dvw;
-  width: 100%;
-  height: 100%;
+.dragon-image {
+  width: 65rem;
   overflow: hidden;
-  z-index: 90;
 }
 
-.press-start {
-  font-size: 2dvw;
-  color: #152b0d;
-  z-index: 100;
+.shop-container {
+  background-color: blueviolet;
+  height: 4rem;
+}
+
+.spell-list-item {
+  padding: 1rem;
+  color: navy;
+  background-color: chartreuse;
+}
+
+.closed-book {
+  height: 50px;
+}
+
+.open-book {
+  display: none;
+  height: 50px;
+}
+
+.scale-counters {
+  color: whitesmoke;
+  font-family: monospace;
+  font-size: large;
+  display: flex;
+  background-color: chocolate;
+  display: grid;
 }

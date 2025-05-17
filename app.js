@@ -40,8 +40,6 @@ document.getElementById("reset-button").addEventListener("click", () => {
 });
 
 //second function - I will fetch the data from the API provided. Reminder to self that API is an async function (think of the burger shop)
-shopAPI();
-
 async function shopAPI() {
   const response = await fetch(
     "https://cookie-upgrade-api.vercel.app/api/upgrades"
@@ -55,18 +53,18 @@ async function shopAPI() {
 
 //now that I have the data from the API, I can use them to create the upgrade items available in my shop. these will be appended into a section in the DOM but first... I'm going to try and rename the items so that they make more sense with the context of my game by storing the new names in an array. If they are not renamed assume this did not work :)
 
-const newNames = {
-  "Auto-Clicker": "A tiny dragon-preening bug",
-  "Enhanced Oven": "A rat wizard",
-  "Cookie Farm": "A pinching crab",
-  "Robot Baker": "A cat who uses dragons like a scratch post",
-  "Cookie Factory": "A wise raven",
-  "Magic Flour": "An enchanted creature",
-  "Time Machine": "A friend who owes you a favour",
-  "Quantum Oven": "Mobile dragon grooming service",
-  "Alien Technology": "Automated scale-plucking device",
-  "Interdimensional Baker": "Delivery of wholesale scales",
-};
+const newNames = [
+  "A tiny dragon-preening bug",
+  "A rat wizard",
+  "A pinching crab",
+  "A cat who uses dragons like a scratch post",
+  "A wise raven",
+  "An enchanted creature",
+  "A friend who owes you a favour",
+  "Mobile dragon grooming service",
+  "Automated scale-plucking device",
+  "Delivery of wholesale scales",
+];
 
 //displaying the upgrade items requires 2 different functions: one to create the element and one to display the data as the element. I am having some trouble getting the new names to display though (╬ Ò﹏Ó)
 
@@ -76,7 +74,15 @@ function createSpellBook(APIdata) {
   APIdata.forEach((item, index) => {
     const spellListItem = document.createElement("div");
     spellListItem.setAttribute("id", "spell-list-item");
-    spellListItem.innerHTML = `${APIdata[index].name} - cost: ${APIdata[index].cost} - increase: ${APIdata[index].increase} CPS:`;
+    spellListItem.setAttribute("class", "spell-list-item");
+    spellListItem.addEventListener("click", () => {
+      if (userStats.dragonScales >= APIdata[index].cost)
+        userStats.scalesPerSecond += APIdata[index].increase;
+      userStats.dragonScales -= APIdata[index].cost;
+    });
+
+    spellListItem.innerHTML = `${newNames[index]} 
+      : ${APIdata[index].cost} - increase: ${APIdata[index].increase}`;
     spellBook.appendChild(spellListItem);
   });
 }
@@ -86,8 +92,20 @@ function createSpellBook(APIdata) {
 async function createSpellBookandAddSpells() {
   const fetchedData = await shopAPI();
   createSpellBook(fetchedData);
+  document.getElementById("closed-book").style.display = "none";
+  document.getElementById("open-book").style.display = "flex";
 }
 
-createSpellBookandAddSpells();
+//createSpellBookandAddSpells();
 
-//now i need to make a function for each one so that we have GAME LOGIC (i.e. you can purchase an upgrade and it will begin working on a timed function. also the upgrades have to "cost" something, so I will have to take that amount from the dragonScales in stats. I will try a for each div I creates in the createSpellBook function
+const closedBook = document.getElementById("closed-book");
+closedBook.addEventListener("click", createSpellBookandAddSpells);
+
+/* function bookSwap() {
+  document.getElementById("closed-book").style.display = "flex";
+  document.getElementById("open-book").style.display = "none";
+}
+
+const openBook = document.getElementById("open-book");
+openBook.addEventListener("click", bookSwap);
+(I realised this was basically re-making the array every time as the opening book is linked to the array. I guess once the book is open you can't close it until I learn more) */
