@@ -2,3 +2,48 @@
   margin: 0;
   padding: 0;
 }
+
+.darumadrop-one-regular {
+  font-family: "Darumadrop One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* imported the font thanks to this explanation on the google font API (and thanks to the lesson on APIs!) https://developers.google.com/fonts/docs/getting_started
+ */
+body {
+  background-color: rgb(29, 92, 22);
+}
+
+.dragon-image {
+  width: 65rem;
+  overflow: hidden;
+}
+
+.shop-container {
+  background-color: blueviolet;
+  height: 4rem;
+}
+
+.spell-list-item {
+  padding: 1rem;
+  color: navy;
+  background-color: chartreuse;
+}
+
+.closed-book {
+  height: 50px;
+}
+
+.open-book {
+  display: none;
+  height: 50px;
+}
+
+.scale-counters {
+  color: whitesmoke;
+  font-family: monospace;
+  font-size: large;
+  display: flex;
+  background-color: chocolate;
+  display: grid;
+}
