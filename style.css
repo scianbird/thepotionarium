@@ -19,40 +19,61 @@
 }
 
 body {
-  background-color: rgb(29, 92, 22);
+  background-image: url(/media/background-texture.png);
+  background-size: cover;
 }
 
 .dragon-image {
-  width: 65rem;
-  overflow: hidden;
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  margin-top: -60px;
+  margin-left: 50px;
 }
 
 .shop-container {
-  background-color: blueviolet;
-  height: 4rem;
+  background-color: #f5f7f8;
 }
 
 .spell-list-item {
   padding: 1rem;
-  color: navy;
-  background-color: chartreuse;
+  background-image: url(/media/page-texture.png);
+}
+
+.spell-list-item:hover {
+  cursor: pointer;
 }
 
 .closed-book {
-  height: 50px;
+  height: 200px;
 }
 
 .open-book {
   display: none;
-  height: 50px;
+  height: 200px;
 }
 
 .scale-counters {
   color: whitesmoke;
-  font-family: monospace;
-  font-size: large;
+  font-family: "Nunito";
+  font-size: 1.5rem;
+  line-height: 1.5em;
   display: flex;
-  background-color: chocolate;
+  flex-direction: column;
+  width: fit-content;
+  margin: 10px;
+  align-content: space-evenly;
+}
+
+.reset-button {
+  background-color: #3a2a4d;
+  color: whitesmoke;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+  z-index: 1; /* in order for the reset button to always be accessible in front of the dragon image i need to set the z axis but this also leaves it visible on the title screen and i can't figure out a fix right now.. */
 }
 
 .title-screen {
@@ -103,4 +124,6 @@ body {
   font-size: 1.3rem;
   background-color: #f8df6b;
   color: #3a2a4d;
+  border: none;
+  border-radius: 15px;
 }
