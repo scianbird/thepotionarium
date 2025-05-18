@@ -78,6 +78,13 @@ const newNames = [
   "Delivery of wholesale scales",
 ];
 
+const upgradeClipart = [
+  { image: "/media/crab-image.png" },
+  { image: "/media/rat-wizard.png" },
+  { image: "/media/crab-image.png" },
+  { image: "/media/rat-wizard.png" },
+];
+
 //const upgradeImages //images to display when you buy an upgrade
 
 //displaying the upgrade items requires 2 different functions: one to create the element and one to display the data as the element. I am having some trouble getting the new names to display though (╬ Ò﹏Ó)
@@ -97,6 +104,9 @@ function createSpellBook(APIdata) {
           userStats.dragonScales;
         document.getElementById("sps-display").innerHTML =
           userStats.scalesPerSecond;
+        //  let upgradeContainer = document.getElementById("upgrades-container");
+        //upgradeContainer.setAttribute("src", upgradeClipart.image);
+        // document.getElementById("dragon-container").appendChild(upgradeClipart);//
       } else {
         console.log("you can't afford this"); //if I have time, I will come back and add something that the player can see to this, otherwise it just looks like it has no function
       }
@@ -104,7 +114,7 @@ function createSpellBook(APIdata) {
     });
 
     spellListItem.innerHTML = `${newNames[index]} 
-      : ${APIdata[index].cost} - increase: ${APIdata[index].increase}`;
+      : ${APIdata[index].cost} | Scales Increase: ${APIdata[index].increase}`;
     spellBook.appendChild(spellListItem);
   });
 }
