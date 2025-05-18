@@ -79,10 +79,10 @@ const newNames = [
 ];
 
 const upgradeClipart = [
-  { image: "/media/crab-image.png" },
-  { image: "/media/rat-wizard.png" },
-  { image: "/media/crab-image.png" },
-  { image: "/media/rat-wizard.png" },
+  { image: "/thepotionarium/media/crab-image.png" },
+  { image: "/thepotionarium/media/rat-wizard.png" },
+  { image: "/thepotionarium/media/crab-image.png" },
+  { image: "/thepotionarium/media/rat-wizard.png" },
 ];
 
 //const upgradeImages //images to display when you buy an upgrade
