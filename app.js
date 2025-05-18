@@ -1,6 +1,19 @@
 //In order to tackle this I am going to take it a step at a time and reference the hand-written list of functions needed (organised in order of when a user would/could come across them). After speaking with Manny and Joe, and reflecting on my feedback from my last assignment, I am aware that scope is something that will probably trip me up at least once!
 
-//I would like a "title screen" to work (a splash or loading screen) - I will aim to handle this by hiding a div after user interaction with the site - although this will be the final piece I add as it's purely aesthetic and will not impact the function in any way.
+//I would like a "title screen" to work (a splash or loading screen) - I will aim to handle this by hiding a div after user interaction with the site - although this will be the final piece I add as it's purely aesthetic and will not impact the function in any way. but it will impact my feelings.
+//it's me from the future here to start working on this.. I think what I'm going to try and do is a boolean that stores "true" if the user has clicked the "play game" button, and then that means that if we save it in local storage the title screen doesn't ever have to show up again (until they reset..?)
+//Ok I could not get that to work so I imagined a workaround wherein the titlescreen is dynamic based on the amount stored in local storage - eg if scales is more than or equal to 100 then show a version of the title screen with scales in the bottle and the info-text could change to refelct eg "your shop is off to a great start" like the updating messages at the top of the cookie clicker. but it's very possible I won't have enough time to impliment all of that before the deadline
+
+//Using example from here: https://www.tutorialspoint.com/how-to-toggle-a-boolean-using-javascript#:~:text=One%20of%20the%20ways%20to,the%20click%20of%20a%20button
+function toggleBoolean() {
+  let flag = true;
+  flag = !flag;
+  {
+    console.log(flag);
+    const titleScreen = document.getElementById("title-screen");
+    titleScreen.style.display = "none";
+  }
+}
 
 //we first need to set the original stats for the user - this should be clicks and clicks per second both set to 0 unless they have data saved
 let userStats = {
@@ -154,5 +167,7 @@ if (parsedPerSec !== null) {
   userStats.scalesPerSecond = parsedPerSec;
   document.getElementById("sps-display").innerHTML = userStats.scalesPerSecond;
 }
+
+const booleanLocalData = localStorage.getItem;
 
 //YAY IT WORKS ＼(٥⁀▽⁀ )／ i think ..
