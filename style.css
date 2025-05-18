@@ -19,7 +19,7 @@
 }
 
 body {
-  background-image: url(/media/background-texture.png);
+  background-image: url(/thepotionarium/media/background-texture.png);
   background-size: cover;
 }
 
@@ -37,7 +37,7 @@ body {
 
 .spell-list-item {
   padding: 1rem;
-  background-image: url(/media/page-texture.png);
+  background-image: url(/thepotionarium/media/page-texture.png);
 }
 
 .spell-list-item:hover {
@@ -80,7 +80,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   display: grid;
-  background-image: url(/media/title-screen-1.png);
+  background-image: url(/thepotionarium/media/title-screen-1.png);
   background-size: cover;
   background-position: bottom;
   position: fixed;
