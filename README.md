@@ -32,4 +32,4 @@ My beloved.. wireframes I made on figma are upthread, but overall I had a very c
 
 I could talk about this all day, but I will try and keep it relevant. Visual assets are hand-drawn on Procreate, airdropped from my iPad and slotted into place after ensuring that the functionality all works as intended/expected. Until that point I'm working with kind of a recreated wireframe like so (and maybe occasionally updating something or stuling a button here and there to keep the fire in my heart alive):
 
-[image]: /early-styling.png "A very rough website layout represented by coloured boxes"
+[image]: /thepotionarium/early-styling.png "A very rough website layout represented by coloured boxes"
