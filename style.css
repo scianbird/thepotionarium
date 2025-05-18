@@ -8,8 +8,16 @@
   font-weight: 400;
   font-style: normal;
 }
-/* imported the font thanks to this explanation on the google font API (and thanks to the lesson on APIs!) https://developers.google.com/fonts/docs/getting_started
+/* imported the fonts thanks to this explanation on the google font API (and thanks to the lesson on APIs!) https://developers.google.com/fonts/docs/getting_started
  */
+
+.Nunito {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
   background-color: rgb(29, 92, 22);
 }
@@ -45,5 +53,54 @@ body {
   font-size: large;
   display: flex;
   background-color: chocolate;
+}
+
+.title-screen {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   display: grid;
+  background-image: url(/media/title-screen-1.png);
+  background-size: cover;
+  background-position: bottom;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.title-text {
+  display: grid;
+  font-family: "Darumadrop One";
+  font-size: 8rem;
+  justify-items: center;
+  line-height: 0.8em;
+  width: auto;
+  margin-left: 25vh;
+  padding: 1rem;
+  color: #f5f7f8;
+  grid-column: 1 / 4;
+}
+
+.intro-text {
+  color: rgb(252, 232, 255);
+  font-family: "Nunito";
+  display: grid;
+  grid-column: 2 / 5;
+  grid-row: 2 / 3;
+  padding: 6rem;
+  padding-top: 1.2rem;
+  padding-right: 7rem;
+  font-size: 1.4rem;
+  text-align: justify;
+}
+
+.button-start {
+  display: grid;
+  grid-column: 3;
+  grid-row: 3;
+  height: fit-content;
+  padding: 1.5rem;
+  font-family: "Darumadrop One";
+  font-size: 1.3rem;
+  background-color: #f8df6b;
+  color: #3a2a4d;
 }

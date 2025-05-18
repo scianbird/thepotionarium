@@ -9,17 +9,32 @@
       href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
     <!-- Sections needed in order to replicate the design of my wireframe: clickable element container, shop container, upgrades container(s), x count, x per second, narrative messages at the top, decorative elements (￣ω￣;)	we're on the redemption run from last week
      Reminder to myself: div is usually used to group similar elements for CSS styling while section is semantic and implies importance. My understanding of this means that only decorative images should be in div, while everything else will be in sections (https://html.spec.whatwg.org/multipage/sections.html)-->
-    <!-- 
+
     <div class="title-screen" id="title-screen">
-      <p>The Potionarium</p>
-      <p class="press-start">Press anywhere to start!</p>
-    </div> -->
+      <p class="title-text" id="title-text">The Potionarium</p>
+      <div class="intro-text">
+        You've just opened your very own potion materials store, and you have
+        acess to what every magic-using creature in the world wants to get their
+        hands (or paws, or talons, or tentacles...) on. <br />Collect dragon
+        scales by clicking your pet dragon -- the scales flake right off!
+        Automate your process with spells (when you have enough scales required
+        for the spell to work).<br />
+        Have fun!
+      </div>
+      <button onclick="toggleBoolean()" class="button-start">Start</button>
+    </div>
 
     <section class="scale-counters" id="scale-counters">
       <p>Number of Scales: <span id="total-scales">0</span></p>
